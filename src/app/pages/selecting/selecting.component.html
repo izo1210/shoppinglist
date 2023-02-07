@@ -1,18 +1,18 @@
 <div class="flex-column-stretch gap5">
     <div class="flex-row-nowrap gap5">
         <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%; ">
-            <mat-label>Product name</mat-label>
+            <mat-label>{{i18n.Product_name}}</mat-label>
             <input matInput [ngModel]="productService.productFilter$|async" (ngModelChange)="productService.productFilter$.next($event)">
         </mat-form-field>
         <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%">
-            <mat-label>Department</mat-label>
+            <mat-label>{{i18n.Department}}</mat-label>
             <mat-select [value]="productService.departmentFilter$|async" (selectionChange)="productService.departmentFilter$.next($event.value)">
-                <mat-option>All</mat-option>
+                <mat-option>{{i18n.All}}</mat-option>
                 <mat-option *ngFor="let department of departmentService.departments$|async" [value]="department">{{department}}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%">
-            <mat-label>Note</mat-label>
+            <mat-label>{{i18n.Note}}</mat-label>
             <input matInput [ngModel]="productService.note$|async" (ngModelChange)="productService.note$.next($event)">
         </mat-form-field>
     </div>

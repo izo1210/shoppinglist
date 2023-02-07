@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { Paths } from './app-routing.module';
 import { ProductService } from './services/product/product.service';
+import { I18nService } from './services/i18n/i18n.service';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +23,11 @@ export class AppComponent {
   constructor(
     public router: Router,
     public productService: ProductService,
+    public i18n: I18nService,
   )
   {
     router.events.subscribe(event=>this.onRouterEvent(event));
+    i18n.setLanguage("hu");
   }
 
   onRouterEvent(event: any): void

@@ -26,6 +26,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { DoneComponent } from './pages/done/done.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { I18nSelectorComponent } from './util/i18n/i18n-selector/i18n-selector.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { environment } from 'src/environments/environment';
     DepartmentsComponent,
     ProductCardComponent,
     DoneComponent,
+    I18nSelectorComponent,
   ],
   imports: [
     BrowserModule,

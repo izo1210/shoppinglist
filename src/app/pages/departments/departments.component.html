@@ -1,12 +1,12 @@
 <div class="flex-column-stretch">
     <mat-form-field appearance="fill">
-        <mat-label>Department name</mat-label>
+        <mat-label>{{i18n.Department_name}}</mat-label>
         <input matInput [ngModel]="departmentService.name$|async" (ngModelChange)="departmentService.name$.next($event)">
     </mat-form-field>
     <div class="flex-row-wrap gap5">
-        <button mat-raised-button (click)="departmentService.add()" color="primary"><mat-icon>add</mat-icon> Add</button>
-        <button mat-raised-button (click)="departmentService.update()"><mat-icon>save</mat-icon> Update</button>
-        <button mat-raised-button (click)="departmentService.remove()"><mat-icon>delete</mat-icon> Delete</button>        
+        <button mat-raised-button (click)="departmentService.add()" color="primary"><mat-icon>add</mat-icon> {{i18n.Add}}</button>
+        <button mat-raised-button (click)="departmentService.update()"><mat-icon>save</mat-icon> {{i18n.Update}}</button>
+        <button mat-raised-button (click)="departmentService.remove()"><mat-icon>delete</mat-icon> {{i18n.Delete}}</button>        
     </div>
 </div>
 <br>

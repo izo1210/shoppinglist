@@ -3,19 +3,20 @@
      <button mat-icon-button (click)="sidenavOpened$.next(false)" style="height: 70px;">
         <mat-icon>navigate_before</mat-icon>
      </button>
-     <div>{{title}}</div>
-     <app-navigation-button text="Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$" mode="menu"></app-navigation-button>
-     <app-navigation-button text="Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$" mode="menu"></app-navigation-button>
-     <app-navigation-button text="Done" icon="check" [path]="paths.done" [active$]="doneActivated$" mode="menu"></app-navigation-button>
-     <app-navigation-button text="Departments" icon="category" [path]="paths.departments" [active$]="departmentsActivated$" mode="menu"></app-navigation-button>
+     <div>{{i18n.Shopping_list}}</div>
+     <app-navigation-button [text]="i18n.Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$" mode="menu"></app-navigation-button>
+     <app-navigation-button [text]="i18n.Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$" mode="menu"></app-navigation-button>
+     <app-navigation-button [text]="i18n.Done" icon="check" [path]="paths.done" [active$]="doneActivated$" mode="menu"></app-navigation-button>
+     <app-navigation-button [text]="i18n.Departments" icon="category" [path]="paths.departments" [active$]="departmentsActivated$" mode="menu"></app-navigation-button>
+     <app-i18n-selector></app-i18n-selector>
   </mat-sidenav>
   <mat-sidenav-content>
      <div class="page-container">
         <mat-toolbar>
-          <app-navigation-button text="Open menu" icon="menu" (click)="sidenavOpened$.next(true)"></app-navigation-button>
-          <app-navigation-button text="Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$"></app-navigation-button>
-          <app-navigation-button text="Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$"></app-navigation-button>
-          <app-navigation-button text="Done" icon="check" [path]="paths.done" [active$]="doneActivated$"></app-navigation-button>
+          <app-navigation-button [text]="i18n.Open_menu" icon="menu" (click)="sidenavOpened$.next(true)"></app-navigation-button>
+          <app-navigation-button [text]="i18n.Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$"></app-navigation-button>
+          <app-navigation-button [text]="i18n.Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$"></app-navigation-button>
+          <app-navigation-button [text]="i18n.Done" icon="check" [path]="paths.done" [active$]="doneActivated$"></app-navigation-button>
           <span class="left-right-spacer"></span>
           <button mat-fab *ngIf="selectingActivated$|async" (click)="productService.add()"><mat-icon>add</mat-icon></button>
           <button mat-fab *ngIf="doneActivated$|async" (click)="productService.resetDoneProducts()"><mat-icon>remove_done</mat-icon></button>
