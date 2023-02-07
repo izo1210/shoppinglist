@@ -24,6 +24,8 @@ import { ShoppingComponent } from './pages/shopping/shopping.component';
 import { DepartmentsComponent } from './pages/departments/departments.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { DoneComponent } from './pages/done/done.component';
+import { APP_BASE_HREF } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,7 @@ import { DoneComponent } from './pages/done/done.component';
     DragDropModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{provide: APP_BASE_HREF, useValue: environment.baseHref }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

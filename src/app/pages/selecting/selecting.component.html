@@ -1,27 +1,22 @@
-<div class="flex-column-stretch">
-    <mat-form-field appearance="fill">
-        <mat-label>Product name</mat-label>
-        <input matInput [ngModel]="productFilter$|async" (ngModelChange)="productFilter$.next($event)">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Department</mat-label>
-        <mat-select [value]="departmentFilter$|async" (selectionChange)="departmentFilter$.next($event.value)">
-            <mat-option>All</mat-option>
-            <mat-option *ngFor="let department of departments$|async" [value]="department">{{department}}</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Note</mat-label>
-        <input matInput [ngModel]="note$|async" (ngModelChange)="note$.next($event)">
-    </mat-form-field>
-    <div class="flex-row-wrap" style="gap: 5px">
-        <button mat-raised-button (click)="addProduct()"><mat-icon>add</mat-icon> Add</button>
-        <span class="left-right-spacer"></span>
-        <button mat-raised-button (click)="resetDoneProducts()"><mat-icon>remove_done</mat-icon> Reset</button>        
-        <button mat-raised-button (click)="resetDepartmentFilter()"><mat-icon>category</mat-icon> All department</button>
+<div class="flex-column-stretch gap5">
+    <div class="flex-row-nowrap gap5">
+        <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%; ">
+            <mat-label>Product name</mat-label>
+            <input matInput [ngModel]="productService.productFilter$|async" (ngModelChange)="productService.productFilter$.next($event)">
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%">
+            <mat-label>Department</mat-label>
+            <mat-select [value]="productService.departmentFilter$|async" (selectionChange)="productService.departmentFilter$.next($event.value)">
+                <mat-option>All</mat-option>
+                <mat-option *ngFor="let department of departmentService.departments$|async" [value]="department">{{department}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" style="width: 100px; flex-basis: 33%">
+            <mat-label>Note</mat-label>
+            <input matInput [ngModel]="productService.note$|async" (ngModelChange)="productService.note$.next($event)">
+        </mat-form-field>
     </div>
 </div>
-<hr>
 <div class="main-content-container">
-    <app-product-card *ngFor="let product of products$|async" [product]="product" (click)="clickProduct(product)"></app-product-card>
+    <app-product-card *ngFor="let product of productService.products$|async" [product]="product" (click)="productService.select(product)"></app-product-card>
 </div>

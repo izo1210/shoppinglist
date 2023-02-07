@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  baseHref: '/izo1210/bevasarlolista/',
 };

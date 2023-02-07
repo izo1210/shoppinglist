@@ -29,8 +29,8 @@ export class ProductCardComponent implements OnInit {
   {
     switch(this.product.status)
     {
-      case Product.STATUS_UNSELECTED: return "dimgray";
-      case Product.STATUS_SELECTED: return "navy";
+      case Product.STATUS_UNSELECTED: return "#444";
+      case Product.STATUS_SELECTED: return "#735";
       case Product.STATUS_DONE: return "green";
       default: return "";
     }

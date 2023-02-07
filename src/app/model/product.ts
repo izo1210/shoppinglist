@@ -42,7 +42,7 @@ export class Product {
 
     compareByDepartmentAndName(other: Product, departments: string[]): number
     {
-        let departmentCompare=departments.indexOf(other.department)-departments.indexOf(this.department);
+        let departmentCompare=departments.indexOf(this.department)-departments.indexOf(other.department);
         if(departmentCompare!==0) return departmentCompare;
         return this.compareByName(other);
     

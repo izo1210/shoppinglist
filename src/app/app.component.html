@@ -4,7 +4,7 @@
         <mat-icon>navigate_before</mat-icon>
      </button>
      <div>{{title}}</div>
-     <app-navigation-button text="Writing" icon="edit_note" [path]="paths.selecting" [active$]="writingActivated$" mode="menu"></app-navigation-button>
+     <app-navigation-button text="Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$" mode="menu"></app-navigation-button>
      <app-navigation-button text="Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$" mode="menu"></app-navigation-button>
      <app-navigation-button text="Done" icon="check" [path]="paths.done" [active$]="doneActivated$" mode="menu"></app-navigation-button>
      <app-navigation-button text="Departments" icon="category" [path]="paths.departments" [active$]="departmentsActivated$" mode="menu"></app-navigation-button>
@@ -13,10 +13,12 @@
      <div class="page-container">
         <mat-toolbar>
           <app-navigation-button text="Open menu" icon="menu" (click)="sidenavOpened$.next(true)"></app-navigation-button>
-          <app-navigation-button text="Writing" icon="edit_note" [path]="paths.selecting" [active$]="writingActivated$"></app-navigation-button>
+          <app-navigation-button text="Selecting" icon="edit_note" [path]="paths.selecting" [active$]="selectingActivated$"></app-navigation-button>
           <app-navigation-button text="Shopping" icon="shopping_cart" [path]="paths.shopping" [active$]="shoppingActivated$"></app-navigation-button>
           <app-navigation-button text="Done" icon="check" [path]="paths.done" [active$]="doneActivated$"></app-navigation-button>
           <span class="left-right-spacer"></span>
+          <button mat-fab *ngIf="selectingActivated$|async" (click)="productService.add()"><mat-icon>add</mat-icon></button>
+          <button mat-fab *ngIf="doneActivated$|async" (click)="productService.resetDoneProducts()"><mat-icon>remove_done</mat-icon></button>
         </mat-toolbar>
         <router-outlet></router-outlet>
      </div>
