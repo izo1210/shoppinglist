@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+html
+    height: 100%
+
+body
+    height: 100%
+    margin: 0px
+
+//sidenav
+.mat-drawer-inner-container
+    display: flex
+    flex-direction: column
+    align-items: left
+
+.mat.drawer-content
+    display: flex
+    flex-direction: column
+    align-items: stretch
+
+//toolbar
+.mat-toolbar
+    padding: 10px
+    height: 70px
+    vertical-align: middle
+    gap: 5px
+
+//error
+.mat-error.out-of-field
+    width: 100%
+    position: relative
+    top: -20px
+
+//fills the sreen
+.root
+    display: block
+    width: 100%
+    height: 100%
+    margin: 0px
+    padding: 0px
+    border: 0px
+
+//fills the parent (root) and sets up flex column stretch
+.page-container
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: column
+    align-items: stretch
+
+//fills the parent (page-container) and sets up flex column stretch
+.page-host
+    height: 1px
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    align-items: stretch
+
+//fills the parent (page-content) and sets optional scrollbars
+.main-content-container
+   height: 1px
+   flex-grow: 1
+   display: block
+   overflow: auto
+
+//fills the parent (main-content-container)
+.main-content
+    width: 100%
+    height: 100%
+
+
+.flex-row-wrap
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    align-items: center
+
+.flex-row-nowrap
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: center
+    white-space: nowrap
+    overflow-x: auto
+
+.flex-column-stretch
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: stretch
+
+.flex-column-center
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.flex-child-grow
+    flex-grow: 1
+
+.left-right-spacer
+  flex: 1 1 auto
+
+.title-center
+    width: 100%
+    text-align: center  
+
+.title-left
+    width: 100%
+    text-align: left    
+
+.round-corner
+    padding: 1px 5px 1px 5px
+    margin: 1px 5px 1px 5px
+    border-radius: 4px
+
+

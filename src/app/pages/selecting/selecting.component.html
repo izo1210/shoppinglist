@@ -1,0 +1,27 @@
+<div class="flex-column-stretch">
+    <mat-form-field appearance="fill">
+        <mat-label>Product name</mat-label>
+        <input matInput [ngModel]="productFilter$|async" (ngModelChange)="productFilter$.next($event)">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Department</mat-label>
+        <mat-select [value]="departmentFilter$|async" (selectionChange)="departmentFilter$.next($event.value)">
+            <mat-option>All</mat-option>
+            <mat-option *ngFor="let department of departments$|async" [value]="department">{{department}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Note</mat-label>
+        <input matInput [ngModel]="note$|async" (ngModelChange)="note$.next($event)">
+    </mat-form-field>
+    <div class="flex-row-wrap" style="gap: 5px">
+        <button mat-raised-button (click)="addProduct()"><mat-icon>add</mat-icon> Add</button>
+        <span class="left-right-spacer"></span>
+        <button mat-raised-button (click)="resetDoneProducts()"><mat-icon>remove_done</mat-icon> Reset</button>        
+        <button mat-raised-button (click)="resetDepartmentFilter()"><mat-icon>category</mat-icon> All department</button>
+    </div>
+</div>
+<hr>
+<div class="main-content-container">
+    <app-product-card *ngFor="let product of products$|async" [product]="product" (click)="clickProduct(product)"></app-product-card>
+</div>
